@@ -6,6 +6,7 @@ const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
 
 mongoose.connect("mongodb://localhost/vinted");
+mongoose.connect(process.env.MONGODB_URI);
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -30,6 +31,6 @@ app.all("*", (req, res) => {
   res.json("Page not found");
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("Server has started");
 });
