@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 const cloudinary = require("cloudinary").v2;
 const cors = require("cors");
 
-mongoose.connect("mongodb://localhost/vinted");
 mongoose.connect(process.env.MONGODB_URI);
 
 cloudinary.config({
